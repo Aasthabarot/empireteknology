@@ -48,6 +48,21 @@ const services = [
 ];
 
 function Services() {
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 400; // Adjust this value based on your header height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth' // This will enable smooth scrolling
+      });
+    }
+  };
+
   return (
     <>
       <section className="bg-white">
@@ -70,9 +85,13 @@ function Services() {
                   {service.description}
                 </p>
                 <Link href={`/services#${service.id}`}>
-                  <button className="flex items-center gap-2 py-2 px-4 border border-blue-600 text-blue-600 hover:bg-blue-50 transition duration-200 rounded-md">
-                    Learn More <FaArrowRightLong />
-                  </button>
+                <button
+                onClick={() => scrollToSection(service.id)}
+                className="flex items-center gap-2 py-2 px-4 border border-blue-600 text-blue-600 hover:bg-blue-50 transition duration-200 rounded-md"
+              >
+                Learn More <FaArrowRightLong />
+              </button>
+
                 </Link>
               </div>
             ))}

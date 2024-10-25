@@ -47,7 +47,7 @@ const Footer = () => {
           <ul className="space-y-1">
             {["Home", "About", "Services", "Blog", "Career", "Contact"].map((item) => (
               <li key={item}>
-                <Link href={`/${item.toLowerCase().replace(/\s+/g, '-')}`} legacyBehavior>
+               <Link href={item === "Home" ? "/" : `/${item.toLowerCase()}`} legacyBehavior>
                   <span className="hover:text-blue-500 transition-colors duration-200 cursor-pointer">
                     {item}
                   </span>
@@ -93,17 +93,16 @@ const Footer = () => {
             </Link>
           </div>
           <Link href="https://www.google.com/maps/search/F+-+24,+Jay-Ambe+Business+Hub,+Near+Bhasariya+Circle,+Baliyasan,+Mahesana,+Gujarat,+Bharat+-+382732/@23.4498428,72.3911476,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTAyMi4wIKXMDSoASAFQAw%3D%3D" legacyBehavior>
-            <div className="flex items-center mt-2 space-x-2">
+            <span className="flex items-center mt-2 space-x-2 cursor-pointer">
               <AiOutlineEnvironment className="text-xl text-gray-600 hover:text-blue-500 transition-colors duration-200" />
-              <span className="text-md text-gray-600 hover:text-blue-500 transition-colors duration-200 cursor-pointer">
+              <span className="text-md text-gray-600 hover:text-blue-500 transition-colors duration-200">
                 F - 24, Jay-Ambe Business Hub,<br />
                 Near Bhasariya Circle, Baliyasan,<br />
                 Mahesana, Gujarat, Bharat - 382732
               </span>
-            </div>
+            </span>
           </Link>
         </div>
-
       </div>
 
       {/* Footer Bottom Section */}

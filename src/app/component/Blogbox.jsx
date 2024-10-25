@@ -57,6 +57,15 @@ function BlogBox({ image, title, link }) {
         ))}
       </div>
     </div>
+
+    <div className="flex justify-center mt-8">
+                    <Link href="/blog">
+                        <button className="flex items-center gap-2 py-2 px-6 border border-blue-600 text-blue-600 hover:bg-blue-50 transition duration-200 rounded-md">
+                            Read More Blogs <FaArrowRightLong />
+                        </button>
+                    </Link>
+                </div>
+
   </section>
 
   );

@@ -13,7 +13,7 @@ const AboutPage = () => {
           
           {/* Left Image Section */}
           <div className="w-full lg:w-[50%] mb-10 lg:mb-0 px-4">
-            <div className="about-image-five">
+            <div className="about-image-five flex items-center justify-center">
               <Image
                 src="/about.jpeg" // Adjust the path to work with Next.js
                 alt="About Us"

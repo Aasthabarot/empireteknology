@@ -14,7 +14,7 @@ const careerData = [
     name: "SITE TECHNICIAN",
     type: "Job",
     descPoints: [
-      "Education : ITI(Electrician)/Diploma(Electrical)",
+      "Education : ITI/Diploma",
       "Job Location : Mahesana, Gujarat",
       "Experience : 3-Years ",
       "Basic Knowledge of Computer",
@@ -55,7 +55,7 @@ function Career() {
       {/* Job Openings Section */}
       <section className="bg-white container mx-auto lg:px-16 lg:py-16 md:px-6 md:py-6 px-4 py-4">
         <div className="container mx-auto px-4"> {/* Added container for margin */}
-          <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mb-10 text-center mt-[100px]">Job Openings</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-blue-600 mb-10 text-center mt-[100px]">Job Openings</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8 my-[20px]">
             {careerData.map((item, index) => (
               <div
