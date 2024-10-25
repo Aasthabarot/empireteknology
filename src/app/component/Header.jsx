@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { MdClose } from 'react-icons/md'; // Importing React Icon for close button
+import Link from 'next/link'; // Import Link from next/link
 
 export default function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,24 +30,22 @@ export default function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <section className="navbar-area bg-[#3b82f6] py-4 shadow-md fixed w-full z-50">
+      <section className="navbar-area bg-[#3b82f6] py-4 fixed w-full z-50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <nav className="navbar flex justify-between items-center w-full lg:mx-[20px] md:mx-[10px]">
-              <a href="index.html" className="navbar-brand flex items-center">
+              <Link href="/" className="navbar-brand flex items-center">
                 <Image src="/ET Logo.jpg" alt="Logo" width={70} height={50} />
                 <span className="text-white lg:text-3xl md:text-2xl text-[18px] font-bold ml-2">Empire Teknology</span>
-              </a>
+              </Link>
               
               <div className="hidden lg:flex justify-end items-end flex-1">
                 <ul className="flex space-x-8 text-white text-[18px] font-bold">
                   {["Home", "About", "Services", "Career", "Blog", "Contact"].map((item) => (
                     <li key={item} className="nav-item relative">
-                      <a 
-                        className="page-scroll hover:bg-[#25566f] hover:scale-105 transition-all duration-300 rounded-lg px-4 py-2" 
-                      >
+                      <Link href={item === "Home" ? "/" : `/${item.toLowerCase()}`} className="page-scroll text-white hover:bg-white hover:text-[#3b82f6] hover:scale-130 transition-all duration-300 rounded-lg px-4 py-2">
                         {item}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -80,17 +79,17 @@ export default function Navbar() {
         } duration-300`}
       >
         <div className="p-4">
-        
           <div className="mt-8">
             <ul className="space-y-2 text-white text-[18px] font-bold">
               {["Home", "About", "Services", "Career", "Blog", "Contact"].map((item) => (
                 <li key={item}>
-                  <a 
-                    className="hover:bg-[#0a2634] hover:scale-105 transition-all duration-300 rounded-lg block px-4 py-2" 
+                  <Link 
+                    href={item === "Home" ? "/" : `/${item.toLowerCase()}`} 
+                    className="hover:bg-white hover:text-[#3b82f6] hover:scale-130 transition-all duration-300 rounded-lg block px-4 py-2" 
                     onClick={toggleMobileMenu}
                   >
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

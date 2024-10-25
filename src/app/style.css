@@ -3,3 +3,13 @@
     background-color: white;
 
 }
+
+/* TestimonialSlider.module.css */
+.swiperContainer {
+    background-color: transparent; /* Ensures the entire Swiper container is transparent */
+  }
+  
+  .swiperSlide {
+    background-color: transparent; /* Ensures each slide has a transparent background */
+  }
+  

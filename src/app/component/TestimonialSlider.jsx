@@ -1,91 +1,50 @@
 "use client";
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, EffectCoverflow, Autoplay } from "swiper/modules"; // Correct module imports
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import Image from "next/image";
+import Link from "next/link";
+import TestimonialSlider from "./TestimonialSlider"; // Adjust the import path based on your file structure
 
-// Light Theme Testimonial Slider with Full-Size Image and Text Below
-function TestimonialSlider() {
-  const testimonialData = [
-    {
-      photo: "/swiper/swiper-img1.jpg",
-      text: "We are very pleased with the progress of the mobile app and web applications for our software.",
-    },
-    {
-      photo: "/swiper/swiper-img2.jpg",
-      text: "I’m very pleased with the work Ronak and his team at Stellarmind delivered.",
-    },
-    {
-      photo: "/swiper/swiper-img3.jpg",
-      text: "Ronak and his team are very professional and worked flexibly on our project.",
-    },
-    // {
-    //   photo: "/swiper/swiper-4.jpg",
-    //   text: "The Stellarmind team understood our idea and provided innovative suggestions.",
-    // },
-    // {
-    //   photo: "/swiper/swiper-5.jpg",
-    //   text: "I greatly appreciate Ronak's patience with various technical challenges.",
-    // },
-  ];
-
+const HeroSection = () => {
   return (
-    <Swiper
-      effect={"coverflow"}
-      grabCursor={true}
-      centeredSlides={true}
-      loop={true}
-      slidesPerView={"auto"}
-      coverflowEffect={{
-        rotate: -30,
-        stretch: 5,
-        depth: 300,
-        modifier: 1,
-      }}
-      autoplay={{
-        delay: 3000, // Auto-slide every 3 seconds
-        disableOnInteraction: false, // Continue autoplay after user interaction
-      }}
-      navigation={true} // Enable navigation arrows
-      pagination={{
-        clickable: true, // Enable pagination dots
-        dynamicBullets: true, // Enable dynamic bullet sizing
-      }}
-      modules={[EffectCoverflow, Navigation, Pagination, Autoplay]} // Add necessary Swiper modules
-      className="swiper_container"
+    <section
+      id="hero-area"
+      className="bg-[#3b82f6] flex items-center justify-center mt-[70px] px-4 sm:px-6 md:px-8 lg:px-16 py-8 sm:py-12 md:py-16 lg:py-24"
+      style={{ minHeight: 'calc(100vh - 70px)' }} // Fixed height accounting for margin
     >
-      {testimonialData.map((item, key) => (
-        <SwiperSlide key={key}>
-          {/* Slide Container */}
-          <div className="flex flex-col items-center justify-center p-8 rounded-lg bg-white shadow-md text-center">
-            {/* Full-Width Image */}
-            <Image
-              className="rounded-lg mb-4 object-cover"
-              src={item.photo}
-              width={1000} // Set width for the image
-              height={1000} // Set height for the image
-              alt={`Testimonial from ${item.text}`}
-              style={{ width: "100%", height: "auto" }} // Ensure the image fills the container width
-            />
-            {/* Text */}
-            <p className="text-gray-800 text-lg font-medium mt-4">{item.text}</p>
+      <div className="container mx-auto flex flex-col lg:flex-row items-center">
+        
+        {/* Left Content Section */}
+        <div className="lg:w-1/2 w-full p-4 md:p-6 lg:p-8 text-center lg:text-left">
+          <div className="header-content rounded-lg p-4 sm:p-6 md:p-8">
+            <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-snug sm:leading-tight">
+              Reliable & Professional Electrical Services for Your Home or Business
+            </h1>
+            <p className="text-base sm:text-base md:text-lg text-white mb-6">
+              At Empire Teknology, we provide top-notch electrical solutions with safety and efficiency in mind. From installations to repairs, our team is committed to powering your life.
+            </p>
+            <div className="button flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-4 justify-center lg:justify-start">
+              <Link href="/services">
+                <span className="btn primary-btn bg-blue-600 text-white px-6 sm:px-8 py-3 rounded-full font-bold hover:bg-blue-700 transition">
+                  Our Services
+                </span>
+              </Link>
+              <Link href="/contact">
+                <span className="btn primary-btn bg-white text-blue-600 px-6 sm:px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition">
+                  Contact Us
+                </span>
+              </Link>
+            </div>
           </div>
-        </SwiperSlide>
-      ))}
+        </div>
 
-      {/* Pagination and Navigation Controls */}
-      <div className="slider-controler text-xl">
-        <div className="swiper-button-prev slider-arrow"></div> {/* Previous Arrow */}
-        <div className="swiper-button-next slider-arrow"></div> {/* Next Arrow */}
+        {/* Right Swiper Section */}
+        <div className="lg:w-1/2 w-full mt-8 lg:mt-0 flex justify-center lg:justify-end">
+          <div className="header-slider w-full max-w-xs sm:max-w-sm md:max-w-[800px] lg:max-w-full">
+            <TestimonialSlider /> {/* Testimonial Slider included */}
+          </div>
+        </div>
       </div>
-      {/* Pagination Dots */}
-      <div className="swiper-pagination"></div>
-    </Swiper>
+    </section>
   );
-}
+};
 
-export default TestimonialSlider;
+export default HeroSection;

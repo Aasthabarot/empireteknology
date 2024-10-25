@@ -3,7 +3,10 @@ import Header from './component/Header';
 import Footer from "./component/Footer";
 import HeroSection from "./component/herosection";
 import AboutPage from "./component/About";
-import ContactForm from "./component/contact";
+// import ContactForm from "./component/contact";
+import Services from "./component/service";
+import ContactSection from "./component/contactsection";
+import BlogBox from "./component/Blogbox";
 
 export default function Home() {
   return (
@@ -15,7 +18,9 @@ export default function Home() {
       
       </div>
       <AboutPage />
-      <ContactForm />
+      <Services />
+      <BlogBox />
+      <ContactSection />
       <Footer />
     </main>
   );
