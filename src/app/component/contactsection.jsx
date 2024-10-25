@@ -1,5 +1,11 @@
 "use client";
 import React from "react";
+import dynamic from 'next/dynamic';
+
+const DynamicGoogleForm = dynamic(() => import('./DynamicGoogleFormComponent'), { ssr: false });
+const DynamicGoogleMap = dynamic(() => import('./DynamicGoogleMapComponent'), { ssr: false });
+
+
 
 const ContactSection = () => {
   return (
@@ -71,39 +77,22 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Google Form Section */}
-            <div className="w-full lg:w-2/3 bg-white rounded-lg shadow-md">
+           
              
-              <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSd67rG20NFQAHH4LWZiYVdMv1Dlc8oo8bDDKG_hGTY-auAOZQ/viewform?embedded=true"
-                width="100%"
-                height="450"
-                frameBorder="0"
-                marginHeight="0"
-                marginWidth="0"
-                title="Contact Form"
-                className="rounded-lg shadow-md"
-              >
-                Loading...
-              </iframe>
+            <div className="w-full lg:w-2/3 bg-white rounded-lg shadow-md">
+              <DynamicGoogleForm />
             </div>
+
           </div>
         </div>
       </section>
 
       {/* ========================= map-section start ========================= */}
       <section className="map-section">
-        <div className="map-container rounded-lg overflow-hidden shadow-md">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.2849034621067!2d72.39116117532667!3d23.45018557887642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c3ff3a0716183%3A0x92becd7276cec2cc!2sJAY%20AMBE%20BUSINESS%20HUB!5e0!3m2!1sen!2sin!4v1729854730251!5m2!1sen!2sin"
-            style={{ border: 0 }}
-            width="100%"
-            height="450"
-            allowFullScreen=""
-            loading="lazy"
-            title="Office Location"
-          ></iframe>
+      <div className="map-container rounded-lg overflow-hidden shadow-md">
+          <DynamicGoogleMap />
         </div>
+
       </section>
       {/* ========================= map-section end ========================= */}
     </>
